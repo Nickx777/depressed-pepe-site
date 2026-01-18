@@ -1,18 +1,20 @@
 const reveals = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
+if (reveals.length) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
 
-reveals.forEach((el) => observer.observe(el));
+  reveals.forEach((el) => observer.observe(el));
+}
 
 const proofButton = document.getElementById("proof-btn");
 const moodInput = document.getElementById("mood-input");
@@ -24,6 +26,7 @@ const toHex = (buffer) =>
     .join("");
 
 const generateProof = async () => {
+  if (!moodInput || !proofOutput) return;
   const mood = moodInput.value.trim();
   if (!mood) {
     proofOutput.textContent = "please enter a mood first";
@@ -35,9 +38,29 @@ const generateProof = async () => {
   proofOutput.textContent = `zk-tear:${toHex(digest)}`;
 };
 
-proofButton.addEventListener("click", generateProof);
-moodInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    generateProof();
-  }
+if (proofButton) {
+  proofButton.addEventListener("click", generateProof);
+}
+
+if (moodInput) {
+  moodInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      generateProof();
+    }
+  });
+}
+
+const copyButtons = document.querySelectorAll("[data-copy]");
+
+copyButtons.forEach((button) => {
+  button.addEventListener("click", async () => {
+    const value = button.getAttribute("data-copy");
+    if (!value) return;
+    await navigator.clipboard.writeText(value);
+    const original = button.textContent;
+    button.textContent = "Copied";
+    setTimeout(() => {
+      button.textContent = original;
+    }, 1200);
+  });
 });

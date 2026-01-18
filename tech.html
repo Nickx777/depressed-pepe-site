@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Depressed Pepe | Futuristic Meme Coin</title>
+    <title>Depressed Pepe | Tech</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -14,8 +14,8 @@
       <div class="container nav">
         <div class="logo">Depressed Pepe</div>
         <nav>
-          <a class="active" href="index.html">Home</a>
-          <a href="tech.html">Tech</a>
+          <a href="index.html">Home</a>
+          <a class="active" href="tech.html">Tech</a>
           <a href="token.html">Token</a>
           <a href="roadmap.html">Roadmap</a>
           <a href="community.html">Community</a>
@@ -28,30 +28,16 @@
       <section class="hero">
         <div class="container hero-grid">
           <div class="hero-copy reveal">
-            <p class="eyebrow">Futuristic meme money</p>
-            <h1>Depressed Pepe is the signal in the sadverse.</h1>
+            <p class="eyebrow">New technology</p>
+            <h1>zk-Tear Protocol</h1>
             <p class="lede">
-              A tear-powered meme coin with private mood proofs, real-time
-              sentiment, and the most resilient community of all time. You feel
-              it. The chain proves it.
+              Privacy-first mood proofs, on-device cryptography, and a live
+              sentiment oracle. Depressed Pepe is built for the next wave of
+              meme finance.
             </p>
             <div class="hero-actions">
-              <a class="cta" href="token.html">Buy Now</a>
-              <a class="ghost" href="tech.html">Explore the Tech</a>
-            </div>
-            <div class="stat-row">
-              <div>
-                <div class="stat-number">1,000,000,000</div>
-                <div class="stat-label">Total Supply</div>
-              </div>
-              <div>
-                <div class="stat-number">6</div>
-                <div class="stat-label">Decimals</div>
-              </div>
-              <div>
-                <div class="stat-number">DPRSDPEPE</div>
-                <div class="stat-label">Ticker</div>
-              </div>
+              <a class="cta" href="token.html">Start Buying</a>
+              <a class="ghost" href="roadmap.html">See Roadmap</a>
             </div>
           </div>
           <div class="hero-art reveal">
@@ -67,51 +53,53 @@
       <section class="section">
         <div class="container">
           <div class="section-title reveal">
-            <p class="eyebrow">Why it wins</p>
-            <h2>People buy because it moves.</h2>
+            <p class="eyebrow">Stack</p>
+            <h2>Tech that makes people feel safe to ape.</h2>
             <p>
-              Depressed Pepe turns mood into momentum. The tech is real, the
-              meme is eternal, and the community is organized.
+              Transparent economics, private participation, and on-chain
+              accountability.
             </p>
           </div>
           <div class="grid-3">
             <div class="card reveal">
-              <h3>Emotion-Backed Liquidity</h3>
+              <h3>On-Device Proofs</h3>
               <p>
-                Fees auto-adjust with the global mood index, increasing depth
-                when sentiment spikes.
+                Generate a zero-knowledge commitment in your browser. No
+                servers, no tracking, no leaks.
               </p>
             </div>
             <div class="card reveal highlight">
-              <h3>zk-Tear Proofs</h3>
+              <h3>Sentiment Oracle</h3>
               <p>
-                On-device zero-knowledge proofs verify engagement without
-                doxxing feelings.
+                The oracle aggregates proof signals into a live mood index used
+                for protocol rewards.
               </p>
             </div>
             <div class="card reveal">
-              <h3>Community Ops</h3>
+              <h3>Adaptive Liquidity</h3>
               <p>
-                Meme drops, raids, and weekly missions convert vibes into buys.
+                Liquidity pools react to the mood index, rewarding early movers
+                and long-term holders.
               </p>
             </div>
           </div>
-          <div class="cta-strip reveal">
+
+          <div class="proof-panel reveal">
             <div>
-              <strong>Ready to feel it?</strong>
-              <p class="lede">
-                Start with the buy guide and join the Telegram for updates.
-              </p>
+              <h3>Try the zk-Tear generator</h3>
+              <p>Type a mood and mint a private commitment.</p>
+              <div class="proof-controls">
+                <input
+                  id="mood-input"
+                  type="text"
+                  placeholder="feeling: low tide nostalgia"
+                />
+                <button id="proof-btn" class="cta">Generate Proof</button>
+              </div>
             </div>
-            <div class="hero-actions">
-              <a class="cta" href="token.html">Buy Guide</a>
-              <a
-                class="ghost"
-                href="https://t.me/+tf0KOCucqjM3NTA0"
-                target="_blank"
-                rel="noreferrer"
-                >Join Telegram</a
-              >
+            <div class="proof-output">
+              <div class="label">Mood Commitment</div>
+              <code id="proof-output">awaiting tears...</code>
             </div>
           </div>
         </div>
